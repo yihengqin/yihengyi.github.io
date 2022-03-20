@@ -1,17 +1,53 @@
-import { defineConfig } from "vuepress/config";
+import { defineConfig } from 'vuepress/config';
 
 export default defineConfig({
   themeConfig: {
-    repo: "vuejs/vuepress",
+    repo: 'vuejs/vuepress',
     editLinks: true,
-    logo: "/assets/img/logo-blog.png",
+    logo: '/assets/img/logo-blog.png',
     nav: [
-      { text: 'Java', link: '/java/' },
-      { text: '工具', link: '/tools/' },
-      { text: 'about me', link: '/about'}
+      { text: '概述', link: '/' },
+      {
+        text: '语言',
+        items: [
+          { text: 'java', link: '/lang/java/' },
+          { text: 'javascript', link: '/lang/javascript/' }
+        ]
+      },
+      {
+        text: '工具',
+        items: [
+          { text: 'vim', link: '/tools/vim/' }
+        ]
+      },
+      { text: 'about me', link: '/about' }
     ],
-    sidebar: 'auto'
+    sidebar: {
+      '/lang/java/': [
+        {
+          title: '基础',
+          children: ['base/type', 'base/while']
+        },
+        {
+          title: '高级',
+          children: ['advance/jvm', 'advance/io']
+        }
+      ],
+      '/lang/javascript/': [
+        {
+          title: 'javascript',
+          children: ['function']
+        }
+      ],
+      '/tools/vim/': [
+        {
+          title: 'vim',
+          children: ['vim-use']
+        }
+      ],
+      '/': ['']
+    }
   },
-  title: "刘成",
-  description: "blog"
+  title: '刘成',
+  description: 'blog'
 });
