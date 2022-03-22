@@ -13,7 +13,7 @@ jobs:
         name: Gen dummy page
         run: |
           ls ./
-          cd docs
+          cd docs/.vuepress
           ls ./
       -
         name: Deploy to GitHub Pages
