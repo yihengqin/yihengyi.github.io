@@ -1,27 +1,18 @@
-name: website
-
-on: push
-
+name: Build and Deploy
+on: [push]
 jobs:
-  publish:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-      -
-        name: Gen dummy page
-        run: |
-          npm install
-          npm run docs:build
-          cd docs/.vuepress
-          ls ./
-      -
-        name: Deploy to GitHub Pages
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v2
-        with:
-          target_branch: gh-pages
-          build_dir: public
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: vuepress-deploy
+      uses: jenkey2011/vuepress-deploy@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        TARGET_REPO: username/repo
+        TARGET_BRANCH: master
+        BUILD_SCRIPT: yarn && yarn build
+        BUILD_DIR: docs/.vuepress/dist
+        CNAME: https://www.yihengyi.com
