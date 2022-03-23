@@ -12,7 +12,7 @@ jobs:
       -
         name: Gen dummy page
         run: |
-          ls ./
+          npm run docs:build
           cd docs/.vuepress
           ls ./
       -
