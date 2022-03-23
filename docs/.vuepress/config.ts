@@ -17,7 +17,7 @@ export default defineConfig({
       {
         text: '工具',
         items: [
-          { text: 'vim', link: '/tools/vim/' }
+          { text: '环境配置', link: '/tools/envsetting/' }
         ]
       },
       { text: 'about me', link: '/about' }
@@ -39,10 +39,10 @@ export default defineConfig({
           children: ['function']
         }
       ],
-      '/tools/vim/': [
+      '/tools/envsetting/': [
         {
-          title: 'vim',
-          children: ['vim-use']
+          title: '环境配置',
+          children: ['vim', 'os']
         }
       ],
       '/': ['']
