@@ -42,7 +42,7 @@ export default defineConfig({
       '/tools/envsetting/': [
         {
           title: '环境配置',
-          children: ['vim', 'os']
+          children: ['terminal', 'vim']
         }
       ],
       '/': ['']
